@@ -1,14 +1,14 @@
-Spring Boot + Bootstrap Starter Project
+Spring Boot + AdminLTE Starter Project
 
 ## Deskripsi
-Starter project untuk project berbasis spring dan bootstrap.
+Starter project untuk project berbasis spring dengan template AdminLTE.
 Beberapa fiturnya antara lain : 
 
 *  Form Login
 *  Multi Role 
 *  Auth dengan UserdetailsService
 *  Validasi
-*  Integrasi bootstrap
+*  Integrasi AdminLTE
 
 ## Kebutuhan Software
 *  Java SDK versi 6
