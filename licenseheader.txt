@@ -1,0 +1,8 @@
+<#if licenseFirst??>
+${licenseFirst}
+</#if>
+${licensePrefix}Copyright (c) ${date?date?string("yyyy")},  Muhamadridwan.id
+${licensePrefix}All rights reserved.
+<#if licenseLast??>
+${licenseLast}
+</#if>
