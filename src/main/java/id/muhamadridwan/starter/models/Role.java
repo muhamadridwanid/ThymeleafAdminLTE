@@ -22,47 +22,38 @@ public class Role implements Serializable, GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Column(unique = true)
-    private String name;
 
+    @Column(unique = true)
+    private String authority;
 
     public Role() {
     }
 
+    public Role(Long id) {
+        this.id = id;
+    }
+    
     public Role(String name) {
-        this.name = name;
+        this.authority = name;
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
     @Override
     public String getAuthority() {
-        return getName();
+        return authority;
     }
-
-    @Override
-    public String toString() {
-        return "Role{" + "id=" + id + ", name=" + name + '}';
-    }
-
-
 
     //<editor-fold defaultstate="collapsed" desc="SETTER">
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
-
 //</editor-fold>
 
 }

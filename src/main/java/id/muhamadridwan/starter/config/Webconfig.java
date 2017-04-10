@@ -10,6 +10,7 @@ import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
 /**
@@ -18,12 +19,12 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
  */
 @Configuration
 public class Webconfig {
-    
+
     @Bean
-    public ServletRegistrationBean h2ServletRegistrationBean(){
+    public ServletRegistrationBean h2ServletRegistrationBean() {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new WebServlet());
         servletRegistrationBean.addUrlMappings("/console/*");
         return servletRegistrationBean;
     }
-    
+
 }

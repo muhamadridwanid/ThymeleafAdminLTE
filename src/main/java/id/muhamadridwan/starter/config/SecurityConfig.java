@@ -19,8 +19,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @author mridwan
  */
 @Configuration
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
-    
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -29,23 +29,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
     }
-      
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().antMatchers("/console/*").hasAuthority("ROLE_ADMIN");      
-        
+                .authorizeRequests().antMatchers("/console/*").hasAuthority("ROLE_ADMIN").and()
+                .authorizeRequests().antMatchers("/admin/*").permitAll();
         http.
                 formLogin().loginPage("/login").permitAll().and()
-                .logout().permitAll(); 
-//        http.csrf().disable();
+                .logout().permitAll();
+        http.csrf().disable();
         http.headers().frameOptions().disable();
     }
-    
+
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         return encoder;
     }
-    
+
 }

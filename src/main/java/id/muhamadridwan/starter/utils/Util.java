@@ -4,16 +4,18 @@
  */
 package id.muhamadridwan.starter.utils;
 
+import id.muhamadridwan.starter.exceptions.IllegalInputException;
+
 /**
  *
  * @author mridwan
  */
 public class Util {
-    public static boolean isNotNull(Object o) throws NullPointerException{
+    public static boolean isNotNull(Object o) throws IllegalInputException{
         if (o != null) {
             return true;
         }else{
-            throw new NullPointerException();
+            throw new IllegalInputException("Invalid input");
         }        
     }
 }

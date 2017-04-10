@@ -1,0 +1,163 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/layouts/layout">
+
+    <head>
+        <title>Muhamad  Ridwan</title>
+        <th:block layout:fragment="page_css_plugin" >
+            <span th:replace="fragments/data_table_css"/>
+            <span th:replace="fragments/form_css"/>
+        </th:block>
+    </head>    
+    <body>
+        <th:block layout:fragment="content" >
+            <div class="box-header with-border">
+                <h3> List Data <small>User</small>
+                    <button class=" btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Tambah Data</button>
+                    <button class=" btn btn-success btn-sm" id="sweet">Demo Sweet alert</button>
+                    <button class="btn btn-danger btn-sm" id="btntest">Test Ajax Thymeleaf</button>
+
+                </h3>
+            </div>
+            <div class="box-body">
+
+                <span th:replace="pages/user/frag_tambah"/>
+
+                <table class="table table-bordered table-responsive table-hover" id="example2">
+                    <thead>
+                        <th>Username</th>
+                        <th>Nama </th>
+                        <th>Jabatan</th>   
+                        <th>Email</th>   
+                        <th>No. Hp</th>   
+                        <th>Action</th>   
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>    
+            </div>
+        </th:block>    
+
+        <th:block layout:fragment="page_js_plugin" >
+            <span th:replace="fragments/data_table_js" />
+            <span th:replace="fragments/form_js" />
+        </th:block>
+
+        <th:block layout:fragment="page_js" >
+            <script>
+                $(document).ready(function () {
+                    if ($('#test_span').length) {
+                        sweetAlert("Oops", "Terjadi Kesalahan, Validasi Error", "error");
+                    }
+
+                    $('#example2').DataTable({
+                        dom: 'fBlrtip',
+                        responsive: true,
+                        buttons: [
+                            'excel', 'pdf', 'copy'
+                        ],
+                        'ajax': '/admin/dttable',
+                        'serverSide': true,
+                        'processing': true,
+                        columns: [
+                            {data: 'username'},
+                            {data: 'nama'},
+                            {data: 'jabatan.name'},
+                            {data: 'email'},
+                            {data: 'noHp'},
+                            {data: 'noHp'}
+
+                        ],
+                        "columnDefs": [{
+                                "targets": 5,
+                                render: function (data, type, row) {
+                                    if (data === null) {
+                                        return '<center>\n\
+                                                    <a href="/admin/user/' + row.username + '" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i></a>\n\
+                                                    <a href="/admin/user/'+ row.username + '/edit" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>\n\
+                                                    <a href="/admin/user/'+ row.username + '/delete" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>\n\
+                                                   </center>';
+                                    }
+                                    return '';
+                                }
+                            }],
+                        initComplete: function () {
+                            reorderDatatable();
+                        }
+                    });
+                    $("form[id='form_tambah']").validate({
+                        rules: {
+                            username: {required: true, minlength: 6},
+                            nama: 'required',
+                            email: {required: true, email: true},
+                            jabatan: 'required',
+                            role: 'required'
+                        },
+                        messages: {
+                        },
+                        submitHandler: function (form) {
+                            form.submit();
+//                            event.preventDefault();
+//                            $('#btntambah').prop('disabled', true);
+//                            $("#btntambah").html("Loading..");
+//
+//                            var frmdata = {};
+//                            frmdata["username"] = $("#username").val();
+//                            frmdata["nama"] = $("#nama").val();
+//                            frmdata["email"] = $("#email").val();
+//                            frmdata["jabatan"] = $("#jabatan").val();
+//                            frmdata["role"] = $("#role").val();
+//
+//                            console.log(JSON.stringify(frmdata));
+//
+//                            var $form = $('#form_tambah');
+//
+//
+//                            $.ajax({
+//                                type: "POST",
+//                                url: $form.attr('action'),
+//                                data: $form.serialize(),
+//                                success: function (data) {
+//                                    sweetAlert("Berhasil", data.responseText, "error");
+//                                },
+//                                error: function (data) {
+////                                    sweetAlert("Berhasil", data.responseText, "error");
+//                                }
+
+//                            });
+
+                        }
+                    });
+                    $('#sweet').on('click', function () {
+                        sweetAlert("Berhasil", "Something went wrong!", "success");
+                    });
+                    $('#btntest').on('click', function () {
+                        $('#test').load('/test');
+                    });
+//var token = $("meta[name='_csrf']").attr("content");
+//var header = $("meta[name='_csrf_header']").attr("content");
+//
+//
+//$.ajax({
+//    url: 'YourRestEndPoint',
+//    headers: {
+//        'Authorization':'Basic xxxxxxxxxxxxx',
+//        'X_CSRF_TOKEN':'xxxxxxxxxxxxxxxxxxxx',
+//        'Content-Type':'application/json'
+//    },
+//    method: 'POST',
+//    dataType: 'json',
+//    data: YourData,
+//    success: function(data){
+//      console.log('succes: '+data);
+//    }
+//  });
+
+                }
+                );
+            </script>
+
+        </th:block>
+
+    </body>
+</html>

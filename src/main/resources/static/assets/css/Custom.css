@@ -5,8 +5,14 @@ All rights reserved.
 
 .box-header{
     padding-left: 30px;
+    padding-right: 30px;
 }
 
 .box-body{
     padding: 30px;
+}
+
+.error{
+    color: red;
+    font-weight: normal;
 }

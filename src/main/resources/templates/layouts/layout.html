@@ -1,228 +1,35 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html>
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <title>AdminLTE 2 | Starter</title>
-        <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
-        <!-- Bootstrap 3.3.6 -->
-        <link rel="stylesheet" th:href="@{assets/bootstrap/css/bootstrap.min.css}"/>
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet" th:href="@{assets/plugins/font-awesome/css/font-awesome.min.css}"/>
-        <!-- Font Awesome -->
-        <link rel="stylesheet" th:href="@{assets/plugins/simple-line-icons/simple-line-icons.min.css}"/>
-        <!-- Ionicons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"/>
-        <!-- DataTables -->
-        <link rel="stylesheet" th:href="@{assets/plugins/datatables/dataTables.bootstrap.css}" /> 
-        <link rel="stylesheet" th:href="@{assets/plugins/datatables/extensions/buttons/css/buttons.dataTables.min.css}" />        
-        <link rel="stylesheet" th:href="@{assets/plugins/datatables/extensions/responsive/css/dataTables.responsive.css}" />        
-
-
-        <!-- Theme style -->
-        <link rel="stylesheet" th:href="@{assets/css/AdminLTE.min.css}"/>
-        <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-              page. However, you can choose any other skin. Make sure you
-              apply the skin class to the body tag so the changes take effect.
-        -->
-        <link rel="stylesheet" th:href="@{assets/css/skins/skin-green.min.css}" />
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-        <link rel="stylesheet" th:href="@{assets/css/Custom.css}" />
-
+        <link th:replace="layouts/fragment/all_css_plugin"/>
     </head>
-    <body class="hold-transition skin-green sidebar-mini">
+    
+    <body class="hold-transition skin-blue sidebar-mini">
         <div class="wrapper">
 
-            <!-- Main Header -->
-            <header class="main-header">
-
-                <!-- Logo -->
-                <a href="index2.html" class="logo">
-                    <!-- mini logo for sidebar mini 50x50 pixels -->
-                    <span class="logo-mini"><b>A</b>LT</span>
-                    <!-- logo for regular state and mobile devices -->
-                    <span class="logo-lg"><b>Admin</b>LTE</span>
-                </a>
-
-                <!-- Header Navbar -->
-                <nav class="navbar navbar-static-top" role="navigation">
-                    <!-- Sidebar toggle button-->
-                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                        <span class="sr-only">Toggle navigation</span>
-                    </a>
-
-                    <!-- Navbar Right Menu -->
-                    <div class="navbar-custom-menu">
-                        <ul class="nav navbar-nav">
-                            <!-- User Account Menu -->
-                            <li class="dropdown user user-menu">
-                                <!-- Menu Toggle Button -->
-                                <a href="/er" class="dropdown-toggle" data-toggle="dropdown">
-                                    <!-- The user image in the navbar-->
-                                    <!--<img th:src="@{assets/img/user2-160x160.jpg}" class="user-image" alt="User Image"/>-->
-                                    <i class="fa fa-ex"></i>
-                                    <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                    <span class="hidden-xs">Logout</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
-            <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar">
-
-                <!-- sidebar: style can be found in sidebar.less -->
-                <section class="sidebar">
-
-                    <!-- Sidebar user panel (optional) -->
-                    <div class="user-panel">
-                        <div class="pull-left image">
-                            <img th:src="@{assets/img/user2-160x160.jpg}" class="img-circle" alt="User Image"/>
-                        </div>
-                        <div class="pull-left info">
-                            <p>Muhamad Ridwan</p>
-                            <!-- Status -->
-                            <a href="#"><i class="fa fa-circle text-success"></i> Project Manager</a> 
-                        </div>
-                    </div>
-
-                    <div th:replace="fragments/navigation">
-                        <!--Navigasi-->
-                    </div>
-
-                </section>
-                <!-- /.sidebar -->
-            </aside>
-
-            <!-- Content Wrapper. Contains page content -->
-            <div class="content-wrapper">
-                <!-- Main content -->
-                <section class="content">
-                    <!--                    <h3>
-                                            <div id="header" layout:fragment="header">
-                                                Your Page Content Here 
-                                            </div>
-                                        </h3><br/>-->
-
-                    <div class="box" >
-                        <div class="box-header with-border">
-                            <h3>Test <small>Input</small></h3>
-                        </div>
-                        <div class="box-body">
-                            <div id="the-content" layout:fragment="content">
-                                <!-- Your Page Content Here -->
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- /.content -->
+            <div th:replace="layouts/fragment/main_header">
+                Main Header
             </div>
-            <!-- /.content-wrapper -->
+            
+            <div th:replace="layouts/fragment/main_sidebar">
+                Main Sidebar
+             </div>
 
-            <!-- Main Footer -->
-            <footer class="main-footer">
-                <!-- To the right -->
-                <div class="pull-right hidden-xs">
-                    Anything you want
-                </div>
-                <!-- Default to the left -->
-                <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-            </footer>
+            <div th:replace="layouts/fragment/content">
+                Content
+            </div>
+
+            <div th:replace="layouts/fragment/footer">
+                Footer
+            </div>
+
         </div>
         <!-- ./wrapper -->
-
-        <!-- REQUIRED JS SCRIPTS -->
-
-        <!-- jQuery 2.2.3 -->
-        <script th:src="@{assets/plugins/jQuery/jquery-2.2.3.min.js}"></script>
-        <!-- Bootstrap 3.3.6 -->
-        <script th:src="@{assets/bootstrap/js/bootstrap.min.js}"></script>
-        <!-- AdminLTE App -->
-        <script th:src="@{assets/js/app.min.js}"></script>
-        <!-- DataTables -->
-        <script th:src="@{assets/plugins/datatables/jquery.dataTables.min.js}"></script>
-        <script th:src="@{assets/plugins/datatables/dataTables.bootstrap.min.js}"></script>
-        <script th:src="@{assets/plugins/datatables/extensions/responsive/js/dataTables.responsive.min.js}"></script>
-        <script th:src="@{assets/plugins/datatables/extensions/buttons/js/dataTables.buttons.min.js}"></script>
-        <script th:src="@{assets/plugins/datatables/extensions/buttons/js/buttons.flash.min.js}"></script>
-        <script th:src="@{assets/plugins/datatables/extensions/jszip/jszip.min.js}"></script>
-        <script th:src="@{assets/plugins/datatables/extensions/pdfmake/build/pdfmake.min.js}"></script>
-        <script th:src="@{assets/plugins/datatables/extensions/pdfmake/build/vfs_fonts.js}"></script>
-        <script th:src="@{assets/plugins/datatables/extensions/buttons/js/buttons.flash.min.js}"></script>
-        <script th:src="@{assets/plugins/datatables/extensions/buttons/js/buttons.html5.min.js}"></script>
-        <script th:src="@{assets/plugins/datatables/extensions/buttons/js/buttons.print.min.js}"></script>
-
-
-        <!-- SlimScroll -->
-        <script th:src="@{assets/plugins/slimScroll/jquery.slimscroll.min.js}"></script>
-        <!-- FastClick -->
-        <script th:src="@{assets/plugins/fastclick/fastclick.js}"></script>
-
-        <!-- Optionally, you can add Slimscroll and FastClick plugins.
-             Both of these plugins are recommended to enhance the
-             user experience. Slimscroll is required when using the
-             fixed layout. -->
-
-
-        <script>
-            $(document).ready(function () {
-                $('#example2').DataTable({
-                    dom: 'fBlrtip',
-                    responsive: true,
-                    buttons: [
-                        'excel', 'pdf', 'copy'
-                    ],
-                    initComplete: function () {
-                        $('.dataTables_filter').addClass("pull-left");
-                        $('.dt-buttons').addClass("pull-right");
-                        $('.dt-buttons').addClass("hidden-xs");
-                        $('.dt-buttons').addClass("hidden-sm");
-                        $('.dataTables_length').addClass("pull-left");
-                        $('.dataTables_length').addClass("hidden-sm");
-                        $('.dataTables_length').addClass("hidden-xs");
-                        $('.dataTables_length').css("padding-left", "10px");
-                    }
-                });
-            });
-
-        </script>
-
+        
+        <script th:replace="layouts/fragment/all_js_plugin">all_java_script;</script>
     </body>
 </html>
-
-
-
-
-<!--<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
-    <head>
-        <title>
-            Ini Adalah Judul
-        </title>
-        <link  th:href="@{/assets/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
-        <script th:src="@{/assets/js/jquery.min.js}"></script>
-    </head>
-    <body>
-        Jdul <br/>
-        <div id="the-content" layout:fragment="content">
-             include here the content of the current page visited by the user 
-        </div>        
-    </body>
-
-
-</html>-->
