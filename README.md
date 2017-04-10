@@ -1,7 +1,5 @@
 # Spring Boot + AdminLTE Starter Project #
 
-## Deskripsi ##
-
 Starter project untuk project berbasis spring dengan template AdminLTE.
 Beberapa fiturnya antara lain : 
 
