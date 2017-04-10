@@ -1,6 +1,7 @@
-#Spring Boot + AdminLTE Starter Project#
+# Spring Boot + AdminLTE Starter Project #
 
 ## Deskripsi ##
+
 Starter project untuk project berbasis spring dengan template AdminLTE.
 Beberapa fiturnya antara lain : 
 
@@ -9,12 +10,17 @@ Beberapa fiturnya antara lain :
 *  Auth dengan UserdetailsService
 *  Validasi
 *  Integrasi AdminLTE
+*  Integrasi Datatable
+*  Integrasi SweetAlert
+*  Dll
 
 ## Kebutuhan Software ##
+
 *  Java SDK versi 8
 *  Maven versi 3
 
 ## Cara Penggunaan ##
+
 1. Clone dulu repository ini
 2. Build menggunakan maven
 3. browse aplikasi ke http://localhost:8080/login
@@ -42,3 +48,6 @@ Aplikasi ini dirilis secara open-source dengan lisensi Apache License versi 2.0,
     * menyalahkan pembuatnya (yaitu kami) bila terjadi kerusakan/kerugian apapun
     * menggunakan merek dagang pembuatnya (yaitu kami) untuk mempromosikan kegiatan Anda
 
+## Website ##
+
+   https://muhamadridwan.id
